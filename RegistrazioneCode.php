@@ -30,7 +30,10 @@
         }
         
         else {
-
+            $SQL2 = "SELECT * FROM utente WHERE utente.Email = $email AND utente.Password = $HASHpassword";
+            $result2 = mysqli_query($conn, $SQL2);
+            $row = mysqli_fetch_assoc($result2);
+            $_SESSION["IDU"] = $row['ID'];
             $_SESSION['nome'] = $nome;
             $_SESSION['email'] = $email;
             $_SESSION['pw'] = $HASHpassword;

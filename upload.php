@@ -29,7 +29,7 @@ if( empty($_SESSION["loggato"]) ){
         }
         $imageLink = $targetFilePath;
         $_SESSION['provaa'] = $imageLink;
-        
+        /*
         $sql1 = "SELECT ID FROM categoria WHERE categoria.NomeCategoria = '$categoria'";
 
         $result1 = mysqli_query($conn, $sql1);
@@ -39,7 +39,7 @@ if( empty($_SESSION["loggato"]) ){
             $ID_CAT = $id;
         } else {
             echo "Nessuna categoria trovata con il nome specificato.";
-        }
+        }  NON FA ZIO PERAAAAA*/ 
         //$result1 = $conn->query($sql1);
         //$row1 = $result1->fetch_assoc();
         //$ID_CAT = $row1['ID'];
@@ -49,16 +49,16 @@ if( empty($_SESSION["loggato"]) ){
 
         $email = $_SESSION["email"];
         $pw = $_SESSION["pw"];
+        $idu = $_SESSION["IDU"];
 
-
         
-        $sql2 = "SELECT ID FROM utente WHERE utente.Email = '$email' && utente.Password = '$pw'";
-        $result2 = $conn->query($sql2);
-        $row2 = mysqli_fetch_assoc($result2);
-        $ID_UT = $row2['ID'];
+        //$sql2 = "SELECT ID FROM utente WHERE utente.Email = '$email' && utente.Password = '$pw'";
+        //$result2 = $conn->query($sql2);
+        //$row2 = mysqli_fetch_assoc($result2);
+        //$ID_UT = $row2['ID'];
+        $_SESSION["provaa"] = "dati=  " . $descrizione . " " . $imageLink . " " . $ID_CAT . " " . $idu . " " . $nome . "";
         
-        
-        $sql3 = "INSERT INTO oggetto (Descrizione, Foto, IDCategoria, IdUtente, Nome) VALUES ('$descrizione', '$imageLink', $ID_CAT, $ID_UT, '$nome')";
+        $sql3 = "INSERT INTO oggetto (Descrizione, Foto, IDCategoria, IdUtente, Nome) VALUES ('$descrizione', '$imageLink', 2, $idu, '$nome')";
         if ($conn->query($sql3) == TRUE) {
             $_SESSION["messaggio"] = "Prodotto caricato correttamente";
         } else {

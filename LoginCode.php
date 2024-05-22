@@ -40,6 +40,7 @@
             else {
                 
                 $_SESSION["loggato"]="log";
+                $_SESSION["IDU"] = $row['ID'];
                 $_SESSION["nome"] = $row['Nome'];
                 $_SESSION["email"] = $email;
                 $_SESSION["pw"] = $HASHpassword;

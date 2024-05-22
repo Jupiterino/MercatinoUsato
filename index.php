@@ -23,7 +23,10 @@
             
             echo "<h1>Benvenuto " . $_SESSION['nome'] . "</h1>";
         }
+        if( !empty($_SESSION['provaa'])){
             
+            echo "<h1>" . $_SESSION['provaa'] . "</h1>";
+        }
 
             $sql = "SELECT oggetto.Nome, Foto, Descrizione, utente.Nome, utente.Email, utente.Password FROM oggetto JOIN utente ON oggetto.IdUtente = utente.ID";   
             $result = $conn->query($sql);
